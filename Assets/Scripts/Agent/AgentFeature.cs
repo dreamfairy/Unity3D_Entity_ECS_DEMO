@@ -9,5 +9,13 @@ public class AgentFeature : Feature {
         Add(new AgentSkinSystem(contexts));
         Add(new AgentMoveSystem(contexts));
         Add(new AgentRotSystem(contexts));
+
+        //录像系统
+        RecordSystem.Instance.Init(contexts);
+        Add(RecordSystem.Instance);
+
+        //回放系统
+        ReplaySystem.Instance.Init(contexts);
+        Add(ReplaySystem.Instance);
     }
 }

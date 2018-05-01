@@ -22,6 +22,11 @@ public class AgentRotSystem : ReactiveSystem<GameEntity> {
     //拥有下列属性才执行
     protected override bool Filter(GameEntity entity)
     {
+        if(!entity.hasLastAgentPos || !entity.hasAgentPos)
+        {
+            return false;
+        }
+
         return entity.agentPos.x != entity.lastAgentPos.x 
             || entity.agentPos.y != entity.lastAgentPos.y 
             || entity.agentPos.z != entity.lastAgentPos.z;
